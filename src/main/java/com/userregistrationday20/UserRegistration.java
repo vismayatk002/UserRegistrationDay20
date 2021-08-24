@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class UserRegistration {
 	
-	public boolean validateFirstName(String firstName) {
-			
+	public boolean validateName(String Name) {
+		
 		boolean returnFlag = true;
-		if(Character.isUpperCase(firstName.charAt(0))) {
+		if(Character.isUpperCase(Name.charAt(0))) {
 			
-			if(firstName.length() < 3) {
+			if(Name.length() < 3) {
 				
 				System.out.println( "First name should have minimum 3 letters");
 				returnFlag = false;
@@ -27,7 +27,11 @@ public class UserRegistration {
     	Scanner sc = new Scanner(System.in);
     	System.out.print( "Enter your first name : ");
     	String firstName = sc.nextLine(); 
-    	user.validateFirstName(firstName);
+    	if(user.validateName(firstName)) {
+    		System.out.print( "Enter your last name : ");
+    		String lastName = sc.nextLine(); 
+    		user.validateName(lastName);
+    	}
     	sc.close();
     }
 }
